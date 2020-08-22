@@ -2,7 +2,7 @@
 
 <b>AspnetVnBasicRealWorld</b> chỉ là một solution, nó chỉ là một ứng dụng Web Asp.Net Core & Entity Framework Core(EF.Core), mà ở đó đã sử dụng các thành phần trong aspnetcore như: <b>razor pages</b>, <b>middlewares</b>, <b>dependency injection</b>, <b>configuration</b>, <b>logging</b>, và một số sử dụng HTML5, CSS & JavaScript để xây dựng nên các trang web. Bạn có thể sử dụng một số boilerplate fast implementation, minimum development, bootstrap your idea, create Minimum Viable Product (MVP), idea validation, startup development trong quá trình học tập với việc sử dụng phiên bản mới nhất của Asp.Net Core và Entity Framework Core.
 
-# What is AspnetVn ?
+# Dự án AspnetVn để làm gì?
 Lộ trình tốt nhất để phát triển kĩ năng <b>ASP.NET Core</b> của bản thân. Tìm kiếm cơ hội tới nhưng công việc <b>Full Stack .Net Core Developer</b> trong tương lai. Mẫu kiến trúc tốt trên Asp.Net Core với Entity Framework core, những thực hành tốt nhất để xây dựng kiến trúc cho một những dụng nhiều tầng layers với DDD principle. Triển khai một ứng dụng NLayer Hexagonal architecture (Core, Application, Infrastructure and Presentation Layers) và Domain Driven Design (Entities, Repositories, Domain/Application Services, DTO's...) nhằm mục đích tạo ra một kiến trúc sạch Clean Architecture, cùng với việc sử dụng các nguyên lý SOLID để sử dụng sau dự án mẫu này. Hơn nữa, sẽ triển khai với các best practices như kiến trúc loosely-coupled, dependency-inverted và sử dụng các pattern như là Dependency Injection, logging, validation, exception handling, localization và nhiều hơn nữa.
 
 # AspnetVn Repositories
