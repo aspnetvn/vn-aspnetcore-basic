@@ -120,5 +120,98 @@ public class Product
 }
 ```
 ### 5, Repository Folder
+Triển khai các Core Interface trong dự án này với Entity Framework Core và các phần phụ thuộc khác.Hầu hết sự phụ thuộc của ứng dụng của bạn vào tài nguyên bên ngoài nên được triển khai trong các lớp được xác định trong dự án Infrastructure. Các Class này sẽ implement trong Core. Nếu bạn đang xây dựng 1 dự án lớn thì có thể bạn có thêm nhiều dự án Infrastructure project. 
+Bạn sẽ có 1 file InterfaceRepository và 1 class implement các phương thức của interface này.
 
+```cs
+public interface IProductRepository
+    {
+        Task<IEnumerable<Product>> GetProductListAsync();
+        Task<Product> GetProductByIdAsync(int id);
+        Task<IEnumerable<Product>> GetProductByNameAsync(string name);
+        Task<IEnumerable<Product>> GetProductByCategoryAsync(int categoryId);
+        Task<Product> AddAsync(Product product);
+        Task UpdateAsync(Product product);
+        Task DeleteAsync(Product product);
+        Task<IEnumerable<Category>> GetCategories();
+    }
+    
+public class ProductRepository : IProductRepository
+    {
+        protected readonly AspnetRunContext _dbContext;
 
+        public ProductRepository(AspnetRunContext dbContext)
+        {
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        }
+
+        public async Task<IEnumerable<Product>> GetProductListAsync()
+        {
+            return await _dbContext.Products.ToListAsync();
+        }
+
+        public async Task<Product> GetProductByIdAsync(int id)
+        {
+            return await _dbContext.Products
+                .Include(p => p.Category)
+                .FirstOrDefaultAsync(p => p.Id == id);
+        }
+....
+```
+
+### 6, Pages Folder
+
+Sử dụng ASP.NET Core project template với based on Razor Pages templates. Các thành phần được sử dụng bao gồm:
+- Asp.Net Core
+- Entity Framework Core
+- Razor Pages
+- Scaffolding Razor
+- Tag Helpers
+- Bindings
+- Model Validations
+- Navigation - Page Routes
+- User Interfaces
+- Partial Views
+- View Components
+- Razor Sections
+- Dynamic Layout
+- Middlewares
+- Logging
+- Configuration
+- Dependency Injection
+
+### wwwroot Folder
+
+Đây là thư mục các file static như hình ảnh, css, js, file thư viện javascript như jquery, boostrap, được sử dụng trong ứng dụng web.
+
+### Startup.cs
+Ứng dụng ASP.NET Core phải bao gồm 1 class Startup.cs Nó giống như file Global.asax trong ứng dụng .NET. Có thể hiểu là nó là file sẽ được thực thi đầu tiên khi ứng dụng được viết bằng ASP.NET Core khởi động.
+
+### Program.cs
+Đây là file có thể tạo một máy chủ lưu trữ cho ứng dụng web viết bằng ASP.NET Core.
+
+## Công nghệ sử dụng
+- .NET Core 3.1 hoặc mới nhất
+- ASP.NET Core 3.1 hoặc mới nhất
+- Entity Framework Core 3.0
+- .NET Core Native DI
+- Razor Pages
+- AutoMapper
+
+## Các đối tượng chính
+- Asp.Net Core
+
+- Entity Framework Core
+
+- Razor Pages
+
+- Repository Design Pattern
+
+- Multiple Page Web Application (MPA)
+
+- Monolitic Deployment Architecture
+
+- SOLID and Clean Code
+
+# Tham khảo từ repo
+<b>[run-aspnetcore-basics](https://github.com/aspnetrun/run-aspnetcore-basics]</b>
