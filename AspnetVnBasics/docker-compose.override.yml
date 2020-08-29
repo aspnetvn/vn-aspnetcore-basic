@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  aspnetvndb:
+    container_name: aspnetvndb
+    ports:
+        - "1433:1433"
+    environment:
+        SA_PASSWORD: "123456a@A"
+        ACCEPT_EULA: "Y"
+
+  aspnetvnbasics:
+    container_name: aspnetvnbasics
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8000:80"
