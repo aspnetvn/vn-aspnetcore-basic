@@ -30,13 +30,23 @@ namespace AspnetVnBasics.Repositories
                 throw new Exception("Not found product");
             }
 
-            cart.Items.Add(new CartItem
+            // Check if the product has Color property exits in carts then increase by 1
+            var cartSelected = cart.Items.FirstOrDefault(c => c.ProductId == productId && c.Color == color);
+
+            if (cartSelected != null)
             {
-                Color = color,
-                Price = product.Price,
-                ProductId = productId,
-                Quantity = quantity
-            });
+                cartSelected.Quantity += 1;
+            }
+            else
+            {
+                cart.Items.Add(new CartItem
+                {
+                    Color = color,
+                    Price = product.Price,
+                    ProductId = productId,
+                    Quantity = quantity
+                });
+            }
 
             _dbContext.Entry<Cart>(cart).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();

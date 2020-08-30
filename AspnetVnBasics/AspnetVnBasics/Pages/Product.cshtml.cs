@@ -24,6 +24,7 @@ namespace AspnetVnBasics.Pages
 
         public IEnumerable<Category> Categories { get; set; } = new List<Category>();
         public IEnumerable<Product> Products { get; set; } = new List<Product>();
+        public Product ProductLast { get; set; } = new Product();
 
         [BindProperty(SupportsGet = true)]
         public string SelectedCategory { get; set; }
@@ -31,7 +32,8 @@ namespace AspnetVnBasics.Pages
         public async Task<IActionResult> OnGetAsync(int? categoryId)
         {
             Categories = await _productRepository.GetCategories();
-
+            var products = await _productRepository.GetProducts();
+            ProductLast = products.LastOrDefault();
             if (categoryId.HasValue)
             {
                 Products = await _productRepository.GetProductByCategory(categoryId.Value);

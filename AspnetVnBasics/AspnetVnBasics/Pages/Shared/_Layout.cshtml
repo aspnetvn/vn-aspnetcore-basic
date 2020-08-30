@@ -19,13 +19,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row">
-                    
-                    <ul class="navbar-nav ml-auto">
+
+                    <ul class="navbar-nav ml-auto mr-md-2">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Product">Product</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Cart">Cart</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Order">Order</a>
@@ -57,7 +54,11 @@
         </nav>
     </header>
 
-    <main role="main" class="pb-3">
+    <section class="pre-loader">
+        <span class="loader loader-bars"></span>
+    </section>
+
+    <main role="main" class="main-container pb-3">
         @RenderBody()
     </main>
 
@@ -68,9 +69,11 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>

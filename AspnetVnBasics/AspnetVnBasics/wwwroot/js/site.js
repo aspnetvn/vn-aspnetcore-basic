@@ -14,5 +14,11 @@
                 form.classList.add('was-validated');
             }, false);
         });
+
+        setTimeout(function () {
+            document.getElementsByClassName('pre-loader')[0].classList.add('d-none');
+        }, 1000);
+
     }, false);
 })();
+

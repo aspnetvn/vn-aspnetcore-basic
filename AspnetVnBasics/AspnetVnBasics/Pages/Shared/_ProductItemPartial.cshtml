@@ -1,15 +1,17 @@
 ﻿@model Product
-
+@{
+    System.Globalization.CultureInfo cul = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
 <div class="card">
-    <a asp-page="ProductDetail" asp-route-productId="@Model.Id"><img asp-append-version="true" class="card-img-top" src="~/images/product/@Model.ImageFile" alt=""></a>
+    <a asp-page="ProductDetail" asp-route-productId="@Model.Id" style="height: 300px;"><img asp-append-version="true" class="card-img-top" src="~/images/product/@Model.ImageFile" alt=""></a>
     <div class="card-body">
         <h4 class="card-title"><a asp-page="ProductDetail" asp-route-productId="@Model.Id" class="color-main">@Model.Name</a></h4>
         <p class="card-text">@Model.Summary</p>
         <div class="row">
-            <div class="col">
-                <p class="btn btn-danger btn-block">@Model.Price $</p>
+            <div class="col-12">
+                <p class="btn btn-danger btn-block">@String.Format(cul, "{0:c}", @Model.Price)</p>
             </div>
-            <div class="col">
+            <div class="col-12">
 
                 @*<a asp-page="Cart" asp-route-productId="@Model.Id" class="btn btn-success btn-block">Add to Cart</a>*@
 

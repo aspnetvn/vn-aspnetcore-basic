@@ -21,17 +21,19 @@ namespace AspnetVnBasics.Repositories
             return contact;
         }
 
-        public async Task<Contact> Subscribe(string address, string Name, string Message)
+        public async Task<Contact> Subscribe(string address, string Phone, string Name, string Message)
         {
             // implement your business logic
             var newContact = new Contact
             {
                 Email = address,
                 Message = Message,
-                Name = Name                
+                Name = Name,
+                Phone = Phone
             };
 
             _dbContext.Contacts.Add(newContact);
+
             await _dbContext.SaveChangesAsync();
 
             return newContact;

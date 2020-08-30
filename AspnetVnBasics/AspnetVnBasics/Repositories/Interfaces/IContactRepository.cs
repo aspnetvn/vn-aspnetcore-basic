@@ -6,6 +6,6 @@ namespace AspnetVnBasics.Repositories.Interfaces
     public interface IContactRepository
     {
         Task<Contact> SendMessage(Contact contact);
-        Task<Contact> Subscribe(string address, string Name, string Message);
+        Task<Contact> Subscribe(string address, string Phone, string Name, string Message);
     }
 }

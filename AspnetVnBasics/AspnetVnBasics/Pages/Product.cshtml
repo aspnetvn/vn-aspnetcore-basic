@@ -5,6 +5,10 @@
     ViewData["Title"] = "Product";
 }
 
+@{
+    System.Globalization.CultureInfo cul = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -37,10 +41,10 @@
             <div class="card bg-light mb-3">
                 <div class="card-header bg-success text-white text-uppercase">Last product</div>
                 <div class="card-body">
-                    <img asp-append-version="true" class="img-fluid" src="~/images/product/@Model.Products.LastOrDefault().ImageFile" />
-                    <h5 class="card-title">@Model.Products.LastOrDefault().Name</h5>
-                    <p class="card-text">@Model.Products.LastOrDefault().Summary</p>
-                    <p class="bloc_left_price">@Model.Products.LastOrDefault().Price $</p>
+                    <img asp-append-version="true" class="img-fluid" src="~/images/product/@Model.ProductLast.ImageFile" />
+                    <h5 class="card-title">@Model.ProductLast.Name</h5>
+                    <p class="card-text">@Model.ProductLast.Summary</p>
+                    <p class="bloc_left_price">@String.Format(cul, "{0:c}", Model.ProductLast.Price)</p>
                 </div>
             </div>
 
@@ -56,23 +60,26 @@
                     </div>
                 }
 
-                <div class="col-12">
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                @if (Model.Products.Count() > 5)
+                {
+                    <div class="col-12 mt-2">
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                }
             </div>
         </div>
 

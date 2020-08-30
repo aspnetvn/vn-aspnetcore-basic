@@ -23,4 +23,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\banner\" />
+  </ItemGroup>
+
 </Project>

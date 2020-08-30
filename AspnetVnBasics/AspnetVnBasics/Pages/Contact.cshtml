@@ -1,0 +1,74 @@
+﻿@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">E-COMMERCE CONTACT</h1>
+        <p class="lead text-muted mb-0">Contact Page build with Bootstrap 4 !</p>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <i class="fa fa-envelope"></i> Contact us.
+                </div>
+                <div class="card-body">
+                    <form asp-page-handler="Subscribe" method="post" name="Subscribe_Form" id="Subscribe_Form">
+                        <div class="form-group">
+                            <label for="Name">Name</label>
+                            <input asp-for="Name" type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" required>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Phone">Phone</label>
+                            <input asp-for="Phone" type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Phone" required>
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input asp-for="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea asp-for="Message" class="form-control" id="message" rows="6" required></textarea>
+                            <span asp-validation-for="Message" class="text-danger"></span>
+                        </div>
+                        <div class="mx-auto">
+                            <button type="submit" class="btn btn-primary text-right">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-4">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase"><i class="fa fa-home"></i> Address</div>
+                <div class="card-body">
+                    <p>No 21, 181 Lane Xuân Thủy, Tổ 11 - Phường Dịch Vọng Hậu - Cầu giấy - Hà Nội.</p>
+                    <p>Việt Nam</p>
+                    <p>Email : nguyen.van.nam@outlook.com</p>
+                    <p>Tel. +84 0164 9801 673</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
